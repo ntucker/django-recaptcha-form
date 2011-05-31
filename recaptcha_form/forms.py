@@ -12,9 +12,6 @@ import recaptcha.client.captcha as captcha
 # Do you want to bypass reCAPTCHA validation while in DEBUG mode?
 SKIP_IF_IN_DEBUG_MODE = False
 
-RECAPTCHA_LANG = settings.LANGUAGE_CODE[:2]
-RECAPTCHA_THEME = getattr(settings, 'RECAPTCHA_THEME', 'red')
-
 
 ### ERROR_CODES
 ERROR_CODES = {
@@ -34,9 +31,7 @@ class RecaptchaWidget(forms.Widget):
        super(RecaptchaWidget, self).__init__()
 
     def render(self, name, value, attrs=None):
-        html = captcha.displayhtml(settings.RECAPTCHA_PUB_KEY,
-                                        theme=RECAPTCHA_THEME,
-                                        lang=RECAPTCHA_LANG)
+        html = captcha.displayhtml(settings.RECAPTCHA_PUB_KEY)
         return mark_safe(html)
 
     def value_from_datadict(self, data, files, name):
