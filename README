@@ -7,3 +7,8 @@ RECAPTCHA_PRIV_KEY
 Requires recaptcha library: http://pypi.python.org/pypi/recaptcha-client
 
 For more information about recaptcha, and to get a recaptcha key, visit: http://www.google.com/recaptcha
+
+
+
+
+(Based on this post http://smileychris.com/ramblings/recaptcha/)
