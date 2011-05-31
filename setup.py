@@ -7,5 +7,5 @@ setup(name='Django Recaptcha',
       description='Recaptcha for Django Forms',
       author='SmileyChris',
       url='http://bitbucket.org/ntucker/django-recaptcha',
-      packages=['recaptcha_form'],
+      packages=['recaptcha_form', 'recaptcha_form.registration_backend'],
      )
