@@ -1,0 +1,9 @@
+Provides form widgets and class mixin for django newforms. This allows adding a recaptcha test to any django form.
+
+Make sure to set these settings in your django settings file:
+RECAPTCHA_PUB_KEY
+RECAPTCHA_PRIV_KEY
+
+Requires recaptcha library: http://pypi.python.org/pypi/recaptcha-client
+
+For more information about recaptcha, and to get a recaptcha key, visit: http://www.google.com/recaptcha
