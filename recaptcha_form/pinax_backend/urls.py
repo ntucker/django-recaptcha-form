@@ -1,7 +1,7 @@
 
 from django.conf.urls.defaults import patterns, url
 
-from pinax.account.urls import *
+from pinax.apps.account.urls import *
 from .forms import RecaptchaSignupForm
 
 urlpatterns = urlpatterns
