@@ -84,7 +84,8 @@ class RecaptchaFieldPlaceholder(forms.Field):
 
 
 class RecaptchaBaseForm(forms.BaseForm):
-    def __init__(self, remote_ip, *args, **kwargs):
+    def __init__(self, *args, **kwargs):
+        remote_ip = kwargs.pop('remote_ip', None)
         for key, field in self.base_fields.items():
             if isinstance(field, RecaptchaFieldPlaceholder):
                 self.base_fields[key] = RecaptchaField(remote_ip, *field.args, **field.kwargs)
