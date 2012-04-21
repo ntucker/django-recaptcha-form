@@ -101,3 +101,12 @@ class RecaptchaForm(RecaptchaBaseForm, forms.Form):
                                    label=_('Are you human?') )
         super(RecaptchaForm, self).__init__(*args, **kwargs)
 
+class RecaptchaModelForm(RecaptchaBaseForm, forms.ModelForm):
+    '''
+    Inheriting from this form gives you a reCAPTCHA field at the bottom.
+    '''
+    def __init__(self, *args, **kwargs):
+        self.base_fields['captcha'] = RecaptchaFieldPlaceholder(
+                                   label=_('Are you human?') )
+        super(RecaptchaForm, self).__init__(*args, **kwargs)
+
