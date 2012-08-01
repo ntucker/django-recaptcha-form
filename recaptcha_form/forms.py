@@ -31,7 +31,7 @@ class RecaptchaWidget(forms.Widget):
        super(RecaptchaWidget, self).__init__()
 
     def render(self, name, value, attrs=None):
-        html = captcha.displayhtml(settings.RECAPTCHA_PUB_KEY)
+        html = unicode(captcha.displayhtml(settings.RECAPTCHA_PUB_KEY))
         return mark_safe(html)
 
     def value_from_datadict(self, data, files, name):
