@@ -7,7 +7,7 @@ def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 setup(name='django-recaptcha-form',
-      version='0.1.1',
+      version='0.1.2',
       description='Recaptcha for Django Forms',
       author='Nathaniel Tucker',
       author_email='me@ntucker.me',
@@ -18,7 +18,7 @@ setup(name='django-recaptcha-form',
           'recaptcha_form.account_backend',
           'recaptcha_form.pinax_backend',
       ],
-      install_requires=['django>=1.4', 'recaptcha-client>=1.0.6', ],
+      install_requires=['django>=1.6', 'recaptcha-client>=1.0.6', ],
       long_description=read('README'),
       license='BSD',
       classifiers=[
