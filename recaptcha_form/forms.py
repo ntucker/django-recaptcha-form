@@ -9,10 +9,6 @@ from django.utils.safestring import mark_safe
 import recaptcha.client.captcha as captcha
 
 
-# Do you want to bypass reCAPTCHA validation while in DEBUG mode?
-SKIP_IF_IN_DEBUG_MODE = False
-
-
 ### ERROR_CODES
 ERROR_CODES = {
     "unknown" :    _("Unknown error."),
@@ -51,7 +47,10 @@ class RecaptchaField(forms.Field):
         super(RecaptchaField, self).__init__(*args, **kwargs)
     
     def clean(self, value):
-        if SKIP_IF_IN_DEBUG_MODE and settings.DEBUG:
+        if getattr(settings, 'RECAPTCHA_SKIP', False) or (
+            getattr(settings, 'RECAPTCHA_SKIP_IF_IN_DEBUG_MODE', False)
+            and settings.DEBUG
+            ):
             return True
         value = super(RecaptchaField, self).clean(value)
         challenge, response = value
